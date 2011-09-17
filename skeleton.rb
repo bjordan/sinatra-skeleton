@@ -23,8 +23,6 @@ class Skeleton < Sinatra::Base
   #general application configuration settings 
   configure do
     
-    #set root as directory current file is in
-    set :root, File.dirname(__FILE__)
     set :logging, true
     LOGGER = Logger.new("logs/log.log")
     #set :custom_var, 'custom_var'
@@ -36,39 +34,8 @@ class Skeleton < Sinatra::Base
       LOGGER
     end
   end
- 
-  #global error handler
-  error do
-    #log error, redirect to friendly error page
-    logger.error env['sinatra.error'].to_s 
-    erb :error
-    
-  end
-  
-  not_found do 
-    erb :'404'
-  end
-  
-  # before and after filters
-  before do
-  end
-  
-  after do
-  end
-  
-  #root
-  get '/' do
-    
-    name = params[:name]
-  
-    if (name)
-      @my_var = 'Hello ' + name.capitalize + '.'
-    else
-      @my_var = 'Hello World!' 
-    end
-
-  erb :index
-  
-  end
 
 end
+
+#require_relative 'models/init'
+require_relative 'routes/init'
