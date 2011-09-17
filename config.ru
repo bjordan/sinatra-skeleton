@@ -1,0 +1,2 @@
+require './skeleton'
+Skeleton.run!
