@@ -17,7 +17,7 @@ class Skeleton < Sinatra::Base
 
   #development specific application configuration settings 
   configure :development do
-    register Sinatra::Reloader
+    register Sinatra::Reloader   
   end
   
   #general application configuration settings 
@@ -25,6 +25,7 @@ class Skeleton < Sinatra::Base
     
     set :logging, true
     LOGGER = Logger.new("logs/log.log")
+    set :root, File.dirname(__FILE__)
     #set :custom_var, 'custom_var'
     
   end  
