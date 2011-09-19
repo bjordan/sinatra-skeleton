@@ -1,11 +1,8 @@
-class Skeleton < Sinatra::Base
+class Skeleton
   
   #global error handler
   error do
-    #log error, redirect to friendly error page
-    logger.error env['sinatra.error'].to_s 
     erb :error
-    
   end
   
   not_found do 
@@ -18,5 +15,5 @@ class Skeleton < Sinatra::Base
   
   after do
   end
-  
+    
 end

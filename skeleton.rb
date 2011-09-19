@@ -1,11 +1,10 @@
 require 'rubygems' if RUBY_VERSION < '1.9'
 require 'sinatra/base'
-require "sinatra/reloader"
+require 'sinatra/reloader'
 require 'erb'
-require 'logger'
 
 class Skeleton < Sinatra::Base
-
+  
   #production specific application configuration settings 
   configure :production do
     
@@ -23,20 +22,14 @@ class Skeleton < Sinatra::Base
   #general application configuration settings 
   configure do
     
-    set :logging, true
-    LOGGER = Logger.new("logs/log.log")
     set :root, File.dirname(__FILE__)
-    #set :custom_var, 'custom_var'
+    set :public, 'public'
     
   end  
- 
-  helpers do
-    def logger
-      LOGGER
-    end
-  end
 
 end
 
-#require_relative 'models/init'
+#reopen Skeleton class and add further funtionality
+require_relative 'helpers/init'
+require_relative 'models/init'
 require_relative 'routes/init'

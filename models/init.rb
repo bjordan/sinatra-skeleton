@@ -1,5 +1,5 @@
-require 'sequel'
-DB = Sequel.postgres 'dbname', user:'bduser', password:'dbpass', host:'localhost'
-DB << "SET CLIENT_ENCODING TO 'UTF8';"
+class Skeleton
 
-require_relative 'users'
+  #init db connections etc
+
+end
